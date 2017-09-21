@@ -31,16 +31,16 @@
             this.grpFuel = new System.Windows.Forms.GroupBox();
             this.btnFuelCalc = new System.Windows.Forms.Button();
             this.txtFuelPrice = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.txtPrevKm = new System.Windows.Forms.TextBox();
+            this.txtCurrentKm = new System.Windows.Forms.TextBox();
             this.lblFuelPrice = new System.Windows.Forms.Label();
-            this.lblCurAmount = new System.Windows.Forms.Label();
-            this.lblPrevOdo = new System.Windows.Forms.Label();
-            this.lblCurrentOdo = new System.Windows.Forms.Label();
+            this.lblAmount = new System.Windows.Forms.Label();
+            this.lblPrevKm = new System.Windows.Forms.Label();
+            this.lblCurrentKm = new System.Windows.Forms.Label();
             this.grpFuelResults = new System.Windows.Forms.GroupBox();
             this.lblFuelResCostKm = new System.Windows.Forms.Label();
-            this.lblFuelResKmSmil = new System.Windows.Forms.Label();
+            this.lblFuelResMil = new System.Windows.Forms.Label();
             this.lblFuelResLitMile = new System.Windows.Forms.Label();
             this.lblFuelResLitKm = new System.Windows.Forms.Label();
             this.lblFuelResKmLit = new System.Windows.Forms.Label();
@@ -53,15 +53,15 @@
             this.radUs = new System.Windows.Forms.RadioButton();
             this.radMetric = new System.Windows.Forms.RadioButton();
             this.btnBmiCalc = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtBmiWeight = new System.Windows.Forms.TextBox();
+            this.txtBmiHeight = new System.Windows.Forms.TextBox();
+            this.txtBmiName = new System.Windows.Forms.TextBox();
             this.lblBmiWeight = new System.Windows.Forms.Label();
             this.lblBmiHeight = new System.Windows.Forms.Label();
-            this.lblBmiName = new System.Windows.Forms.Label();
+            this.lnlBmiName = new System.Windows.Forms.Label();
             this.grpBmiResults = new System.Windows.Forms.GroupBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.lblBmiResCat = new System.Windows.Forms.Label();
+            this.lblBmiResBmi = new System.Windows.Forms.Label();
             this.lblBmiResults = new System.Windows.Forms.Label();
             this.lblBmiResults_2 = new System.Windows.Forms.Label();
             this.lblBmiResults_1 = new System.Windows.Forms.Label();
@@ -75,13 +75,13 @@
             // 
             this.grpFuel.Controls.Add(this.btnFuelCalc);
             this.grpFuel.Controls.Add(this.txtFuelPrice);
-            this.grpFuel.Controls.Add(this.textBox3);
-            this.grpFuel.Controls.Add(this.textBox2);
-            this.grpFuel.Controls.Add(this.textBox1);
+            this.grpFuel.Controls.Add(this.txtAmount);
+            this.grpFuel.Controls.Add(this.txtPrevKm);
+            this.grpFuel.Controls.Add(this.txtCurrentKm);
             this.grpFuel.Controls.Add(this.lblFuelPrice);
-            this.grpFuel.Controls.Add(this.lblCurAmount);
-            this.grpFuel.Controls.Add(this.lblPrevOdo);
-            this.grpFuel.Controls.Add(this.lblCurrentOdo);
+            this.grpFuel.Controls.Add(this.lblAmount);
+            this.grpFuel.Controls.Add(this.lblPrevKm);
+            this.grpFuel.Controls.Add(this.lblCurrentKm);
             this.grpFuel.Controls.Add(this.grpFuelResults);
             this.grpFuel.Location = new System.Drawing.Point(12, 12);
             this.grpFuel.Name = "grpFuel";
@@ -98,6 +98,7 @@
             this.btnFuelCalc.TabIndex = 9;
             this.btnFuelCalc.Text = "Calculate";
             this.btnFuelCalc.UseVisualStyleBackColor = true;
+            this.btnFuelCalc.Click += new System.EventHandler(this.btnFuelCalc_Click);
             // 
             // txtFuelPrice
             // 
@@ -105,27 +106,32 @@
             this.txtFuelPrice.Name = "txtFuelPrice";
             this.txtFuelPrice.Size = new System.Drawing.Size(100, 20);
             this.txtFuelPrice.TabIndex = 8;
+            this.txtFuelPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox3
+            // txtAmount
             // 
-            this.textBox3.Location = new System.Drawing.Point(203, 70);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(54, 20);
-            this.textBox3.TabIndex = 7;
+            this.txtAmount.Location = new System.Drawing.Point(203, 70);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(54, 20);
+            this.txtAmount.TabIndex = 7;
+            this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox2
+            // txtPrevKm
             // 
-            this.textBox2.Location = new System.Drawing.Point(177, 44);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(80, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtPrevKm.Location = new System.Drawing.Point(177, 44);
+            this.txtPrevKm.Name = "txtPrevKm";
+            this.txtPrevKm.Size = new System.Drawing.Size(80, 20);
+            this.txtPrevKm.TabIndex = 6;
+            this.txtPrevKm.Text = "0";
+            this.txtPrevKm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox1
+            // txtCurrentKm
             // 
-            this.textBox1.Location = new System.Drawing.Point(177, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(80, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtCurrentKm.Location = new System.Drawing.Point(177, 17);
+            this.txtCurrentKm.Name = "txtCurrentKm";
+            this.txtCurrentKm.Size = new System.Drawing.Size(80, 20);
+            this.txtCurrentKm.TabIndex = 5;
+            this.txtCurrentKm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblFuelPrice
             // 
@@ -136,37 +142,37 @@
             this.lblFuelPrice.TabIndex = 4;
             this.lblFuelPrice.Text = "Price per liter";
             // 
-            // lblCurAmount
+            // lblAmount
             // 
-            this.lblCurAmount.AutoSize = true;
-            this.lblCurAmount.Location = new System.Drawing.Point(8, 71);
-            this.lblCurAmount.Name = "lblCurAmount";
-            this.lblCurAmount.Size = new System.Drawing.Size(165, 13);
-            this.lblCurAmount.TabIndex = 3;
-            this.lblCurAmount.Text = "Current amount of fuel tank (liters)";
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.Location = new System.Drawing.Point(8, 71);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(177, 13);
+            this.lblAmount.TabIndex = 3;
+            this.lblAmount.Text = "Current amount of fuel tanked (liters)";
             // 
-            // lblPrevOdo
+            // lblPrevKm
             // 
-            this.lblPrevOdo.AutoSize = true;
-            this.lblPrevOdo.Location = new System.Drawing.Point(8, 42);
-            this.lblPrevOdo.Name = "lblPrevOdo";
-            this.lblPrevOdo.Size = new System.Drawing.Size(156, 13);
-            this.lblPrevOdo.TabIndex = 2;
-            this.lblPrevOdo.Text = "Previous odometer reading (km)";
+            this.lblPrevKm.AutoSize = true;
+            this.lblPrevKm.Location = new System.Drawing.Point(8, 42);
+            this.lblPrevKm.Name = "lblPrevKm";
+            this.lblPrevKm.Size = new System.Drawing.Size(156, 13);
+            this.lblPrevKm.TabIndex = 2;
+            this.lblPrevKm.Text = "Previous odometer reading (km)";
             // 
-            // lblCurrentOdo
+            // lblCurrentKm
             // 
-            this.lblCurrentOdo.AutoSize = true;
-            this.lblCurrentOdo.Location = new System.Drawing.Point(8, 18);
-            this.lblCurrentOdo.Name = "lblCurrentOdo";
-            this.lblCurrentOdo.Size = new System.Drawing.Size(149, 13);
-            this.lblCurrentOdo.TabIndex = 1;
-            this.lblCurrentOdo.Text = "Current odometer reading (km)";
+            this.lblCurrentKm.AutoSize = true;
+            this.lblCurrentKm.Location = new System.Drawing.Point(8, 18);
+            this.lblCurrentKm.Name = "lblCurrentKm";
+            this.lblCurrentKm.Size = new System.Drawing.Size(149, 13);
+            this.lblCurrentKm.TabIndex = 1;
+            this.lblCurrentKm.Text = "Current odometer reading (km)";
             // 
             // grpFuelResults
             // 
             this.grpFuelResults.Controls.Add(this.lblFuelResCostKm);
-            this.grpFuelResults.Controls.Add(this.lblFuelResKmSmil);
+            this.grpFuelResults.Controls.Add(this.lblFuelResMil);
             this.grpFuelResults.Controls.Add(this.lblFuelResLitMile);
             this.grpFuelResults.Controls.Add(this.lblFuelResLitKm);
             this.grpFuelResults.Controls.Add(this.lblFuelResKmLit);
@@ -184,58 +190,48 @@
             // 
             // lblFuelResCostKm
             // 
-            this.lblFuelResCostKm.AutoSize = true;
             this.lblFuelResCostKm.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblFuelResCostKm.Location = new System.Drawing.Point(190, 134);
             this.lblFuelResCostKm.Name = "lblFuelResCostKm";
             this.lblFuelResCostKm.Padding = new System.Windows.Forms.Padding(2);
             this.lblFuelResCostKm.Size = new System.Drawing.Size(47, 19);
             this.lblFuelResCostKm.TabIndex = 14;
-            this.lblFuelResCostKm.Text = "label10";
             // 
-            // lblFuelResKmSmil
+            // lblFuelResMil
             // 
-            this.lblFuelResKmSmil.AutoSize = true;
-            this.lblFuelResKmSmil.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblFuelResKmSmil.Location = new System.Drawing.Point(190, 107);
-            this.lblFuelResKmSmil.Name = "lblFuelResKmSmil";
-            this.lblFuelResKmSmil.Padding = new System.Windows.Forms.Padding(2);
-            this.lblFuelResKmSmil.Size = new System.Drawing.Size(47, 19);
-            this.lblFuelResKmSmil.TabIndex = 13;
-            this.lblFuelResKmSmil.Text = "label11";
+            this.lblFuelResMil.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblFuelResMil.Location = new System.Drawing.Point(190, 107);
+            this.lblFuelResMil.Name = "lblFuelResMil";
+            this.lblFuelResMil.Padding = new System.Windows.Forms.Padding(2);
+            this.lblFuelResMil.Size = new System.Drawing.Size(47, 19);
+            this.lblFuelResMil.TabIndex = 13;
             // 
             // lblFuelResLitMile
             // 
-            this.lblFuelResLitMile.AutoSize = true;
             this.lblFuelResLitMile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblFuelResLitMile.Location = new System.Drawing.Point(190, 79);
             this.lblFuelResLitMile.Name = "lblFuelResLitMile";
             this.lblFuelResLitMile.Padding = new System.Windows.Forms.Padding(2);
             this.lblFuelResLitMile.Size = new System.Drawing.Size(47, 19);
             this.lblFuelResLitMile.TabIndex = 12;
-            this.lblFuelResLitMile.Text = "label12";
             // 
             // lblFuelResLitKm
             // 
-            this.lblFuelResLitKm.AutoSize = true;
             this.lblFuelResLitKm.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblFuelResLitKm.Location = new System.Drawing.Point(190, 52);
             this.lblFuelResLitKm.Name = "lblFuelResLitKm";
             this.lblFuelResLitKm.Padding = new System.Windows.Forms.Padding(2);
             this.lblFuelResLitKm.Size = new System.Drawing.Size(47, 19);
             this.lblFuelResLitKm.TabIndex = 11;
-            this.lblFuelResLitKm.Text = "label13";
             // 
             // lblFuelResKmLit
             // 
-            this.lblFuelResKmLit.AutoSize = true;
             this.lblFuelResKmLit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblFuelResKmLit.Location = new System.Drawing.Point(190, 26);
             this.lblFuelResKmLit.Name = "lblFuelResKmLit";
             this.lblFuelResKmLit.Padding = new System.Windows.Forms.Padding(2);
             this.lblFuelResKmLit.Size = new System.Drawing.Size(47, 19);
             this.lblFuelResKmLit.TabIndex = 10;
-            this.lblFuelResKmLit.Text = "label14";
             // 
             // lblFuelResults_5
             // 
@@ -287,12 +283,12 @@
             this.grpBmi.Controls.Add(this.radUs);
             this.grpBmi.Controls.Add(this.radMetric);
             this.grpBmi.Controls.Add(this.btnBmiCalc);
-            this.grpBmi.Controls.Add(this.textBox6);
-            this.grpBmi.Controls.Add(this.textBox7);
-            this.grpBmi.Controls.Add(this.textBox8);
+            this.grpBmi.Controls.Add(this.txtBmiWeight);
+            this.grpBmi.Controls.Add(this.txtBmiHeight);
+            this.grpBmi.Controls.Add(this.txtBmiName);
             this.grpBmi.Controls.Add(this.lblBmiWeight);
             this.grpBmi.Controls.Add(this.lblBmiHeight);
-            this.grpBmi.Controls.Add(this.lblBmiName);
+            this.grpBmi.Controls.Add(this.lnlBmiName);
             this.grpBmi.Controls.Add(this.grpBmiResults);
             this.grpBmi.Location = new System.Drawing.Point(281, 12);
             this.grpBmi.Name = "grpBmi";
@@ -308,13 +304,14 @@
             this.radUs.Name = "radUs";
             this.radUs.Size = new System.Drawing.Size(83, 17);
             this.radUs.TabIndex = 9;
-            this.radUs.TabStop = true;
             this.radUs.Text = "US (lb, inch)";
             this.radUs.UseVisualStyleBackColor = true;
+            this.radUs.CheckedChanged += new System.EventHandler(this.radUs_CheckedChanged);
             // 
             // radMetric
             // 
             this.radMetric.AutoSize = true;
+            this.radMetric.Checked = true;
             this.radMetric.Location = new System.Drawing.Point(212, 45);
             this.radMetric.Name = "radMetric";
             this.radMetric.Size = new System.Drawing.Size(95, 17);
@@ -322,6 +319,7 @@
             this.radMetric.TabStop = true;
             this.radMetric.Text = "Metric (kg, cm)";
             this.radMetric.UseVisualStyleBackColor = true;
+            this.radMetric.CheckedChanged += new System.EventHandler(this.radMetric_CheckedChanged);
             // 
             // btnBmiCalc
             // 
@@ -329,29 +327,30 @@
             this.btnBmiCalc.Name = "btnBmiCalc";
             this.btnBmiCalc.Size = new System.Drawing.Size(75, 23);
             this.btnBmiCalc.TabIndex = 10;
-            this.btnBmiCalc.Text = "button2";
+            this.btnBmiCalc.Text = "Calculate";
             this.btnBmiCalc.UseVisualStyleBackColor = true;
+            this.btnBmiCalc.Click += new System.EventHandler(this.btnBmiCalc_Click);
             // 
-            // textBox6
+            // txtBmiWeight
             // 
-            this.textBox6.Location = new System.Drawing.Point(106, 70);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 7;
+            this.txtBmiWeight.Location = new System.Drawing.Point(106, 70);
+            this.txtBmiWeight.Name = "txtBmiWeight";
+            this.txtBmiWeight.Size = new System.Drawing.Size(100, 20);
+            this.txtBmiWeight.TabIndex = 7;
             // 
-            // textBox7
+            // txtBmiHeight
             // 
-            this.textBox7.Location = new System.Drawing.Point(106, 44);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 6;
+            this.txtBmiHeight.Location = new System.Drawing.Point(106, 44);
+            this.txtBmiHeight.Name = "txtBmiHeight";
+            this.txtBmiHeight.Size = new System.Drawing.Size(100, 20);
+            this.txtBmiHeight.TabIndex = 6;
             // 
-            // textBox8
+            // txtBmiName
             // 
-            this.textBox8.Location = new System.Drawing.Point(106, 19);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(202, 20);
-            this.textBox8.TabIndex = 5;
+            this.txtBmiName.Location = new System.Drawing.Point(106, 19);
+            this.txtBmiName.Name = "txtBmiName";
+            this.txtBmiName.Size = new System.Drawing.Size(202, 20);
+            this.txtBmiName.TabIndex = 5;
             // 
             // lblBmiWeight
             // 
@@ -371,19 +370,19 @@
             this.lblBmiHeight.TabIndex = 2;
             this.lblBmiHeight.Text = "Height (cm)";
             // 
-            // lblBmiName
+            // lnlBmiName
             // 
-            this.lblBmiName.AutoSize = true;
-            this.lblBmiName.Location = new System.Drawing.Point(7, 20);
-            this.lblBmiName.Name = "lblBmiName";
-            this.lblBmiName.Size = new System.Drawing.Size(58, 13);
-            this.lblBmiName.TabIndex = 1;
-            this.lblBmiName.Text = "Your name";
+            this.lnlBmiName.AutoSize = true;
+            this.lnlBmiName.Location = new System.Drawing.Point(7, 20);
+            this.lnlBmiName.Name = "lnlBmiName";
+            this.lnlBmiName.Size = new System.Drawing.Size(58, 13);
+            this.lnlBmiName.TabIndex = 1;
+            this.lnlBmiName.Text = "Your name";
             // 
             // grpBmiResults
             // 
-            this.grpBmiResults.Controls.Add(this.label22);
-            this.grpBmiResults.Controls.Add(this.label23);
+            this.grpBmiResults.Controls.Add(this.lblBmiResCat);
+            this.grpBmiResults.Controls.Add(this.lblBmiResBmi);
             this.grpBmiResults.Controls.Add(this.lblBmiResults);
             this.grpBmiResults.Controls.Add(this.lblBmiResults_2);
             this.grpBmiResults.Controls.Add(this.lblBmiResults_1);
@@ -394,27 +393,23 @@
             this.grpBmiResults.TabStop = false;
             this.grpBmiResults.Text = "Results";
             // 
-            // label22
+            // lblBmiResCat
             // 
-            this.label22.AutoSize = true;
-            this.label22.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label22.Location = new System.Drawing.Point(96, 58);
-            this.label22.Name = "label22";
-            this.label22.Padding = new System.Windows.Forms.Padding(2);
-            this.label22.Size = new System.Drawing.Size(47, 19);
-            this.label22.TabIndex = 11;
-            this.label22.Text = "label22";
+            this.lblBmiResCat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBmiResCat.Location = new System.Drawing.Point(96, 58);
+            this.lblBmiResCat.Name = "lblBmiResCat";
+            this.lblBmiResCat.Padding = new System.Windows.Forms.Padding(2);
+            this.lblBmiResCat.Size = new System.Drawing.Size(47, 19);
+            this.lblBmiResCat.TabIndex = 11;
             // 
-            // label23
+            // lblBmiResBmi
             // 
-            this.label23.AutoSize = true;
-            this.label23.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label23.Location = new System.Drawing.Point(96, 26);
-            this.label23.Name = "label23";
-            this.label23.Padding = new System.Windows.Forms.Padding(2);
-            this.label23.Size = new System.Drawing.Size(47, 19);
-            this.label23.TabIndex = 10;
-            this.label23.Text = "label23";
+            this.lblBmiResBmi.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBmiResBmi.Location = new System.Drawing.Point(96, 26);
+            this.lblBmiResBmi.Name = "lblBmiResBmi";
+            this.lblBmiResBmi.Padding = new System.Windows.Forms.Padding(2);
+            this.lblBmiResBmi.Size = new System.Drawing.Size(47, 19);
+            this.lblBmiResBmi.TabIndex = 10;
             // 
             // lblBmiResults
             // 
@@ -471,16 +466,16 @@
         private System.Windows.Forms.GroupBox grpFuel;
         private System.Windows.Forms.Button btnFuelCalc;
         private System.Windows.Forms.TextBox txtFuelPrice;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.TextBox txtPrevKm;
+        private System.Windows.Forms.TextBox txtCurrentKm;
         private System.Windows.Forms.Label lblFuelPrice;
-        private System.Windows.Forms.Label lblCurAmount;
-        private System.Windows.Forms.Label lblPrevOdo;
-        private System.Windows.Forms.Label lblCurrentOdo;
+        private System.Windows.Forms.Label lblAmount;
+        private System.Windows.Forms.Label lblPrevKm;
+        private System.Windows.Forms.Label lblCurrentKm;
         private System.Windows.Forms.GroupBox grpFuelResults;
         private System.Windows.Forms.Label lblFuelResCostKm;
-        private System.Windows.Forms.Label lblFuelResKmSmil;
+        private System.Windows.Forms.Label lblFuelResMil;
         private System.Windows.Forms.Label lblFuelResLitMile;
         private System.Windows.Forms.Label lblFuelResLitKm;
         private System.Windows.Forms.Label lblFuelResKmLit;
@@ -493,15 +488,15 @@
         private System.Windows.Forms.RadioButton radUs;
         private System.Windows.Forms.RadioButton radMetric;
         private System.Windows.Forms.Button btnBmiCalc;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtBmiWeight;
+        private System.Windows.Forms.TextBox txtBmiHeight;
+        private System.Windows.Forms.TextBox txtBmiName;
         private System.Windows.Forms.Label lblBmiWeight;
         private System.Windows.Forms.Label lblBmiHeight;
-        private System.Windows.Forms.Label lblBmiName;
+        private System.Windows.Forms.Label lnlBmiName;
         private System.Windows.Forms.GroupBox grpBmiResults;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label lblBmiResCat;
+        private System.Windows.Forms.Label lblBmiResBmi;
         private System.Windows.Forms.Label lblBmiResults;
         private System.Windows.Forms.Label lblBmiResults_2;
         private System.Windows.Forms.Label lblBmiResults_1;
