@@ -44,6 +44,8 @@ namespace WindowsFormsApp2
         {
             lblBmiResBmi.Text = "";
             lblBmiResCat.Text = "";
+            lblBmiRange.Text = "";
+            grpBmiResults.Text = "Results for noname";
         }
 
         private void clearFuelFields()
@@ -178,11 +180,11 @@ namespace WindowsFormsApp2
                 fuelCalc.Calculate(out kmPerLiter, out litPerKm, out litPerMile, out litPerMil, out costPerKm);
 
                 // Update the GUI with the result 
-                lblFuelResKmLit.Text = kmPerLiter.ToString();
-                lblFuelResLitKm.Text = litPerKm.ToString();
-                lblFuelResLitMile.Text = litPerMile.ToString();
-                lblFuelResMil.Text = litPerMil.ToString();
-                lblFuelResCostKm.Text = costPerKm.ToString();
+                lblFuelResKmLit.Text = kmPerLiter.ToString("0.##");
+                lblFuelResLitKm.Text = litPerKm.ToString("0.##");
+                lblFuelResLitMile.Text = litPerMile.ToString("0.##");
+                lblFuelResMil.Text = litPerMil.ToString("0.##");
+                lblFuelResCostKm.Text = costPerKm.ToString("0.##");
             }
 
             // if the input is incorrect, clear the
@@ -200,7 +202,7 @@ namespace WindowsFormsApp2
             if (radUs.Checked == true)
             {
                 lblBmiHeight.Text = "Height (inch)";
-                lblBmiWeight.Text = "Weight (oc)";
+                lblBmiWeight.Text = "Weight (lb)";
                 bmiCalc.setUnit(Unit.US);
             }
         }
@@ -219,17 +221,23 @@ namespace WindowsFormsApp2
         private void btnBmiCalc_Click(object sender, EventArgs e)
         {
             // Initialize result variables
-            double bmi = 0;
+            double bmi;
+            string bmiCategory;
+            string bmiRange;
+
 
             // Validate the input
             if (validateBmiInput())
             {
                 // input is validated and ready for the fuelCalc
-                bmiCalc.Calculate(out bmi);
+                bmi = bmiCalc.Calculate(out bmiRange, out bmiCategory);
+                lblBmiResBmi.Text = bmi.ToString("0.#");
+                lblBmiResCat.Text = bmiCategory;
+                lblBmiRange.Text = "Range for category " + bmiCategory + " is " + bmiRange + "\nNormal BMI is between 18.5 and 30.";
 
+
+                // update the groupbox with the username
                 grpBmiResults.Text = ("Results for " + updateBmiUsername());
-
-
             }
             else
             {

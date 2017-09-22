@@ -62,7 +62,7 @@
             this.grpBmiResults = new System.Windows.Forms.GroupBox();
             this.lblBmiResCat = new System.Windows.Forms.Label();
             this.lblBmiResBmi = new System.Windows.Forms.Label();
-            this.lblBmiResults = new System.Windows.Forms.Label();
+            this.lblBmiRange = new System.Windows.Forms.Label();
             this.lblBmiResults_2 = new System.Windows.Forms.Label();
             this.lblBmiResults_1 = new System.Windows.Forms.Label();
             this.grpFuel.SuspendLayout();
@@ -254,11 +254,11 @@
             // lblFuelResults_3
             // 
             this.lblFuelResults_3.AutoSize = true;
-            this.lblFuelResults_3.Location = new System.Drawing.Point(6, 79);
+            this.lblFuelResults_3.Location = new System.Drawing.Point(6, 80);
             this.lblFuelResults_3.Name = "lblFuelResults_3";
-            this.lblFuelResults_3.Size = new System.Drawing.Size(163, 13);
+            this.lblFuelResults_3.Size = new System.Drawing.Size(160, 13);
             this.lblFuelResults_3.TabIndex = 7;
-            this.lblFuelResults_3.Text = " Fuel consumption (lit/metric mile)";
+            this.lblFuelResults_3.Text = "Fuel consumption (lit/metric mile)";
             // 
             // lblFuelResults_2
             // 
@@ -337,6 +337,7 @@
             this.txtBmiWeight.Name = "txtBmiWeight";
             this.txtBmiWeight.Size = new System.Drawing.Size(100, 20);
             this.txtBmiWeight.TabIndex = 7;
+            this.txtBmiWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBmiHeight
             // 
@@ -344,6 +345,7 @@
             this.txtBmiHeight.Name = "txtBmiHeight";
             this.txtBmiHeight.Size = new System.Drawing.Size(100, 20);
             this.txtBmiHeight.TabIndex = 6;
+            this.txtBmiHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBmiName
             // 
@@ -383,12 +385,12 @@
             // 
             this.grpBmiResults.Controls.Add(this.lblBmiResCat);
             this.grpBmiResults.Controls.Add(this.lblBmiResBmi);
-            this.grpBmiResults.Controls.Add(this.lblBmiResults);
+            this.grpBmiResults.Controls.Add(this.lblBmiRange);
             this.grpBmiResults.Controls.Add(this.lblBmiResults_2);
             this.grpBmiResults.Controls.Add(this.lblBmiResults_1);
-            this.grpBmiResults.Location = new System.Drawing.Point(10, 168);
+            this.grpBmiResults.Location = new System.Drawing.Point(13, 168);
             this.grpBmiResults.Name = "grpBmiResults";
-            this.grpBmiResults.Size = new System.Drawing.Size(298, 157);
+            this.grpBmiResults.Size = new System.Drawing.Size(295, 157);
             this.grpBmiResults.TabIndex = 0;
             this.grpBmiResults.TabStop = false;
             this.grpBmiResults.Text = "Results";
@@ -399,8 +401,9 @@
             this.lblBmiResCat.Location = new System.Drawing.Point(96, 58);
             this.lblBmiResCat.Name = "lblBmiResCat";
             this.lblBmiResCat.Padding = new System.Windows.Forms.Padding(2);
-            this.lblBmiResCat.Size = new System.Drawing.Size(47, 19);
+            this.lblBmiResCat.Size = new System.Drawing.Size(100, 19);
             this.lblBmiResCat.TabIndex = 11;
+            this.lblBmiResCat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblBmiResBmi
             // 
@@ -408,17 +411,16 @@
             this.lblBmiResBmi.Location = new System.Drawing.Point(96, 26);
             this.lblBmiResBmi.Name = "lblBmiResBmi";
             this.lblBmiResBmi.Padding = new System.Windows.Forms.Padding(2);
-            this.lblBmiResBmi.Size = new System.Drawing.Size(47, 19);
+            this.lblBmiResBmi.Size = new System.Drawing.Size(100, 19);
             this.lblBmiResBmi.TabIndex = 10;
+            this.lblBmiResBmi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblBmiResults
+            // lblBmiRange
             // 
-            this.lblBmiResults.AutoSize = true;
-            this.lblBmiResults.Location = new System.Drawing.Point(6, 85);
-            this.lblBmiResults.Name = "lblBmiResults";
-            this.lblBmiResults.Size = new System.Drawing.Size(41, 13);
-            this.lblBmiResults.TabIndex = 9;
-            this.lblBmiResults.Text = "label24";
+            this.lblBmiRange.Location = new System.Drawing.Point(6, 96);
+            this.lblBmiRange.Name = "lblBmiRange";
+            this.lblBmiRange.Size = new System.Drawing.Size(276, 53);
+            this.lblBmiRange.TabIndex = 9;
             // 
             // lblBmiResults_2
             // 
@@ -497,7 +499,7 @@
         private System.Windows.Forms.GroupBox grpBmiResults;
         private System.Windows.Forms.Label lblBmiResCat;
         private System.Windows.Forms.Label lblBmiResBmi;
-        private System.Windows.Forms.Label lblBmiResults;
+        private System.Windows.Forms.Label lblBmiRange;
         private System.Windows.Forms.Label lblBmiResults_2;
         private System.Windows.Forms.Label lblBmiResults_1;
     }
