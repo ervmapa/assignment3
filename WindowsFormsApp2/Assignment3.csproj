@@ -46,7 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BmiCalc.cs" />
+    <Compile Include="BmrCalc.cs" />
+    <Compile Include="BmrActivityLevel.cs" />
     <Compile Include="FuelCalc.cs" />
+    <Compile Include="Gender.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

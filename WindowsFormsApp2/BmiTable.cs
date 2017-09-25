@@ -21,22 +21,22 @@ namespace WindowsFormsApp2
             }
             else if (bmi<25)
             {
-                bmiRange = "18.5 < 25";
+                bmiRange = "18.5 - 24.9";
                 status = "Normal weight";
             }
             else if (bmi < 30)
             {
-                bmiRange = "25 < 30";
+                bmiRange = "25 - 29.5";
                 status = "Overweight (preobesity)";
             }
             else if (bmi < 35)
             {
-                bmiRange = "30 < 35";
+                bmiRange = "30 - 34.9";
                 status = "Obesity class I";
             }
             else if (bmi < 40)
             {
-                bmiRange = "35 < 40";
+                bmiRange = "35 - 39.9";
                 status = "Obesity class II";
             }
             else

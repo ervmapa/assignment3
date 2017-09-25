@@ -65,10 +65,27 @@
             this.lblBmiRange = new System.Windows.Forms.Label();
             this.lblBmiResults_2 = new System.Windows.Forms.Label();
             this.lblBmiResults_1 = new System.Windows.Forms.Label();
+            this.grpBmr = new System.Windows.Forms.GroupBox();
+            this.lblBmrSelect = new System.Windows.Forms.Label();
+            this.btnBrmUnselect = new System.Windows.Forms.Button();
+            this.btnBmrCalc = new System.Windows.Forms.Button();
+            this.lboxBmr = new System.Windows.Forms.ListBox();
+            this.grpActivity = new System.Windows.Forms.GroupBox();
+            this.radALight = new System.Windows.Forms.RadioButton();
+            this.radAModerate = new System.Windows.Forms.RadioButton();
+            this.radAVery = new System.Windows.Forms.RadioButton();
+            this.radAExtra = new System.Windows.Forms.RadioButton();
+            this.radASedentary = new System.Windows.Forms.RadioButton();
+            this.txtAge = new System.Windows.Forms.TextBox();
+            this.lblAge = new System.Windows.Forms.Label();
+            this.radMale = new System.Windows.Forms.RadioButton();
+            this.radFemale = new System.Windows.Forms.RadioButton();
             this.grpFuel.SuspendLayout();
             this.grpFuelResults.SuspendLayout();
             this.grpBmi.SuspendLayout();
             this.grpBmiResults.SuspendLayout();
+            this.grpBmr.SuspendLayout();
+            this.grpActivity.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpFuel
@@ -85,14 +102,14 @@
             this.grpFuel.Controls.Add(this.grpFuelResults);
             this.grpFuel.Location = new System.Drawing.Point(12, 12);
             this.grpFuel.Name = "grpFuel";
-            this.grpFuel.Size = new System.Drawing.Size(263, 331);
+            this.grpFuel.Size = new System.Drawing.Size(263, 315);
             this.grpFuel.TabIndex = 0;
             this.grpFuel.TabStop = false;
             this.grpFuel.Text = "Fuel";
             // 
             // btnFuelCalc
             // 
-            this.btnFuelCalc.Location = new System.Drawing.Point(10, 130);
+            this.btnFuelCalc.Location = new System.Drawing.Point(10, 119);
             this.btnFuelCalc.Name = "btnFuelCalc";
             this.btnFuelCalc.Size = new System.Drawing.Size(75, 23);
             this.btnFuelCalc.TabIndex = 9;
@@ -181,7 +198,7 @@
             this.grpFuelResults.Controls.Add(this.lblFuelResults_3);
             this.grpFuelResults.Controls.Add(this.lblFuelResults_2);
             this.grpFuelResults.Controls.Add(this.lblFuelResults_1);
-            this.grpFuelResults.Location = new System.Drawing.Point(10, 168);
+            this.grpFuelResults.Location = new System.Drawing.Point(10, 148);
             this.grpFuelResults.Name = "grpFuelResults";
             this.grpFuelResults.Size = new System.Drawing.Size(247, 157);
             this.grpFuelResults.TabIndex = 0;
@@ -191,7 +208,7 @@
             // lblFuelResCostKm
             // 
             this.lblFuelResCostKm.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblFuelResCostKm.Location = new System.Drawing.Point(190, 134);
+            this.lblFuelResCostKm.Location = new System.Drawing.Point(190, 122);
             this.lblFuelResCostKm.Name = "lblFuelResCostKm";
             this.lblFuelResCostKm.Padding = new System.Windows.Forms.Padding(2);
             this.lblFuelResCostKm.Size = new System.Drawing.Size(47, 19);
@@ -200,7 +217,7 @@
             // lblFuelResMil
             // 
             this.lblFuelResMil.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblFuelResMil.Location = new System.Drawing.Point(190, 107);
+            this.lblFuelResMil.Location = new System.Drawing.Point(190, 98);
             this.lblFuelResMil.Name = "lblFuelResMil";
             this.lblFuelResMil.Padding = new System.Windows.Forms.Padding(2);
             this.lblFuelResMil.Size = new System.Drawing.Size(47, 19);
@@ -209,7 +226,7 @@
             // lblFuelResLitMile
             // 
             this.lblFuelResLitMile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblFuelResLitMile.Location = new System.Drawing.Point(190, 79);
+            this.lblFuelResLitMile.Location = new System.Drawing.Point(190, 73);
             this.lblFuelResLitMile.Name = "lblFuelResLitMile";
             this.lblFuelResLitMile.Padding = new System.Windows.Forms.Padding(2);
             this.lblFuelResLitMile.Size = new System.Drawing.Size(47, 19);
@@ -218,7 +235,7 @@
             // lblFuelResLitKm
             // 
             this.lblFuelResLitKm.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblFuelResLitKm.Location = new System.Drawing.Point(190, 52);
+            this.lblFuelResLitKm.Location = new System.Drawing.Point(190, 49);
             this.lblFuelResLitKm.Name = "lblFuelResLitKm";
             this.lblFuelResLitKm.Padding = new System.Windows.Forms.Padding(2);
             this.lblFuelResLitKm.Size = new System.Drawing.Size(47, 19);
@@ -236,7 +253,7 @@
             // lblFuelResults_5
             // 
             this.lblFuelResults_5.AutoSize = true;
-            this.lblFuelResults_5.Location = new System.Drawing.Point(6, 136);
+            this.lblFuelResults_5.Location = new System.Drawing.Point(6, 124);
             this.lblFuelResults_5.Name = "lblFuelResults_5";
             this.lblFuelResults_5.Size = new System.Drawing.Size(91, 13);
             this.lblFuelResults_5.TabIndex = 9;
@@ -245,7 +262,7 @@
             // lblFuelResults_4
             // 
             this.lblFuelResults_4.AutoSize = true;
-            this.lblFuelResults_4.Location = new System.Drawing.Point(6, 109);
+            this.lblFuelResults_4.Location = new System.Drawing.Point(6, 100);
             this.lblFuelResults_4.Name = "lblFuelResults_4";
             this.lblFuelResults_4.Size = new System.Drawing.Size(164, 13);
             this.lblFuelResults_4.TabIndex = 8;
@@ -254,7 +271,7 @@
             // lblFuelResults_3
             // 
             this.lblFuelResults_3.AutoSize = true;
-            this.lblFuelResults_3.Location = new System.Drawing.Point(6, 80);
+            this.lblFuelResults_3.Location = new System.Drawing.Point(6, 74);
             this.lblFuelResults_3.Name = "lblFuelResults_3";
             this.lblFuelResults_3.Size = new System.Drawing.Size(160, 13);
             this.lblFuelResults_3.TabIndex = 7;
@@ -263,7 +280,7 @@
             // lblFuelResults_2
             // 
             this.lblFuelResults_2.AutoSize = true;
-            this.lblFuelResults_2.Location = new System.Drawing.Point(6, 52);
+            this.lblFuelResults_2.Location = new System.Drawing.Point(6, 49);
             this.lblFuelResults_2.Name = "lblFuelResults_2";
             this.lblFuelResults_2.Size = new System.Drawing.Size(125, 13);
             this.lblFuelResults_2.TabIndex = 6;
@@ -292,7 +309,7 @@
             this.grpBmi.Controls.Add(this.grpBmiResults);
             this.grpBmi.Location = new System.Drawing.Point(281, 12);
             this.grpBmi.Name = "grpBmi";
-            this.grpBmi.Size = new System.Drawing.Size(316, 331);
+            this.grpBmi.Size = new System.Drawing.Size(316, 315);
             this.grpBmi.TabIndex = 1;
             this.grpBmi.TabStop = false;
             this.grpBmi.Text = "BMI";
@@ -323,7 +340,7 @@
             // 
             // btnBmiCalc
             // 
-            this.btnBmiCalc.Location = new System.Drawing.Point(10, 130);
+            this.btnBmiCalc.Location = new System.Drawing.Point(10, 119);
             this.btnBmiCalc.Name = "btnBmiCalc";
             this.btnBmiCalc.Size = new System.Drawing.Size(75, 23);
             this.btnBmiCalc.TabIndex = 10;
@@ -388,7 +405,7 @@
             this.grpBmiResults.Controls.Add(this.lblBmiRange);
             this.grpBmiResults.Controls.Add(this.lblBmiResults_2);
             this.grpBmiResults.Controls.Add(this.lblBmiResults_1);
-            this.grpBmiResults.Location = new System.Drawing.Point(13, 168);
+            this.grpBmiResults.Location = new System.Drawing.Point(10, 148);
             this.grpBmiResults.Name = "grpBmiResults";
             this.grpBmiResults.Size = new System.Drawing.Size(295, 157);
             this.grpBmiResults.TabIndex = 0;
@@ -398,7 +415,7 @@
             // lblBmiResCat
             // 
             this.lblBmiResCat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblBmiResCat.Location = new System.Drawing.Point(96, 58);
+            this.lblBmiResCat.Location = new System.Drawing.Point(96, 49);
             this.lblBmiResCat.Name = "lblBmiResCat";
             this.lblBmiResCat.Padding = new System.Windows.Forms.Padding(2);
             this.lblBmiResCat.Size = new System.Drawing.Size(100, 19);
@@ -408,7 +425,7 @@
             // lblBmiResBmi
             // 
             this.lblBmiResBmi.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblBmiResBmi.Location = new System.Drawing.Point(96, 26);
+            this.lblBmiResBmi.Location = new System.Drawing.Point(96, 23);
             this.lblBmiResBmi.Name = "lblBmiResBmi";
             this.lblBmiResBmi.Padding = new System.Windows.Forms.Padding(2);
             this.lblBmiResBmi.Size = new System.Drawing.Size(100, 19);
@@ -417,7 +434,7 @@
             // 
             // lblBmiRange
             // 
-            this.lblBmiRange.Location = new System.Drawing.Point(6, 96);
+            this.lblBmiRange.Location = new System.Drawing.Point(11, 74);
             this.lblBmiRange.Name = "lblBmiRange";
             this.lblBmiRange.Size = new System.Drawing.Size(276, 53);
             this.lblBmiRange.TabIndex = 9;
@@ -425,7 +442,7 @@
             // lblBmiResults_2
             // 
             this.lblBmiResults_2.AutoSize = true;
-            this.lblBmiResults_2.Location = new System.Drawing.Point(6, 58);
+            this.lblBmiResults_2.Location = new System.Drawing.Point(8, 49);
             this.lblBmiResults_2.Name = "lblBmiResults_2";
             this.lblBmiResults_2.Size = new System.Drawing.Size(85, 13);
             this.lblBmiResults_2.TabIndex = 6;
@@ -434,19 +451,190 @@
             // lblBmiResults_1
             // 
             this.lblBmiResults_1.AutoSize = true;
-            this.lblBmiResults_1.Location = new System.Drawing.Point(6, 28);
+            this.lblBmiResults_1.Location = new System.Drawing.Point(8, 27);
             this.lblBmiResults_1.Name = "lblBmiResults_1";
             this.lblBmiResults_1.Size = new System.Drawing.Size(51, 13);
             this.lblBmiResults_1.TabIndex = 5;
             this.lblBmiResults_1.Text = "Your BMI";
             // 
+            // grpBmr
+            // 
+            this.grpBmr.Controls.Add(this.lblBmrSelect);
+            this.grpBmr.Controls.Add(this.btnBrmUnselect);
+            this.grpBmr.Controls.Add(this.btnBmrCalc);
+            this.grpBmr.Controls.Add(this.lboxBmr);
+            this.grpBmr.Controls.Add(this.grpActivity);
+            this.grpBmr.Controls.Add(this.txtAge);
+            this.grpBmr.Controls.Add(this.lblAge);
+            this.grpBmr.Controls.Add(this.radMale);
+            this.grpBmr.Controls.Add(this.radFemale);
+            this.grpBmr.Location = new System.Drawing.Point(12, 333);
+            this.grpBmr.Name = "grpBmr";
+            this.grpBmr.Size = new System.Drawing.Size(585, 239);
+            this.grpBmr.TabIndex = 2;
+            this.grpBmr.TabStop = false;
+            this.grpBmr.Text = "BMR";
+            // 
+            // lblBmrSelect
+            // 
+            this.lblBmrSelect.AutoSize = true;
+            this.lblBmrSelect.Location = new System.Drawing.Point(279, 215);
+            this.lblBmrSelect.Name = "lblBmrSelect";
+            this.lblBmrSelect.Size = new System.Drawing.Size(62, 13);
+            this.lblBmrSelect.TabIndex = 14;
+            this.lblBmrSelect.Text = "selected: -1";
+            // 
+            // btnBrmUnselect
+            // 
+            this.btnBrmUnselect.Location = new System.Drawing.Point(499, 210);
+            this.btnBrmUnselect.Name = "btnBrmUnselect";
+            this.btnBrmUnselect.Size = new System.Drawing.Size(75, 23);
+            this.btnBrmUnselect.TabIndex = 13;
+            this.btnBrmUnselect.Text = "Unselect";
+            this.btnBrmUnselect.UseVisualStyleBackColor = true;
+            this.btnBrmUnselect.Click += new System.EventHandler(this.btnBrmUnselect_Click);
+            // 
+            // btnBmrCalc
+            // 
+            this.btnBmrCalc.Location = new System.Drawing.Point(11, 209);
+            this.btnBmrCalc.Name = "btnBmrCalc";
+            this.btnBmrCalc.Size = new System.Drawing.Size(75, 23);
+            this.btnBmrCalc.TabIndex = 12;
+            this.btnBmrCalc.Text = "Calculate";
+            this.btnBmrCalc.UseVisualStyleBackColor = true;
+            this.btnBmrCalc.Click += new System.EventHandler(this.btnBmrCalc_Click);
+            // 
+            // lboxBmr
+            // 
+            this.lboxBmr.Font = new System.Drawing.Font("Courier New", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lboxBmr.FormattingEnabled = true;
+            this.lboxBmr.ItemHeight = 12;
+            this.lboxBmr.Location = new System.Drawing.Point(269, 67);
+            this.lboxBmr.Name = "lboxBmr";
+            this.lboxBmr.Size = new System.Drawing.Size(305, 136);
+            this.lboxBmr.TabIndex = 11;
+            this.lboxBmr.SelectedIndexChanged += new System.EventHandler(this.lboxBmr_SelectedIndexChanged);
+            // 
+            // grpActivity
+            // 
+            this.grpActivity.Controls.Add(this.radALight);
+            this.grpActivity.Controls.Add(this.radAModerate);
+            this.grpActivity.Controls.Add(this.radAVery);
+            this.grpActivity.Controls.Add(this.radAExtra);
+            this.grpActivity.Controls.Add(this.radASedentary);
+            this.grpActivity.Location = new System.Drawing.Point(10, 69);
+            this.grpActivity.Name = "grpActivity";
+            this.grpActivity.Size = new System.Drawing.Size(244, 134);
+            this.grpActivity.TabIndex = 10;
+            this.grpActivity.TabStop = false;
+            this.grpActivity.Text = "Activity level per week";
+            // 
+            // radALight
+            // 
+            this.radALight.AutoSize = true;
+            this.radALight.Location = new System.Drawing.Point(7, 42);
+            this.radALight.Name = "radALight";
+            this.radALight.Size = new System.Drawing.Size(138, 17);
+            this.radALight.TabIndex = 5;
+            this.radALight.Text = "Lightly active (1-3 times)";
+            this.radALight.UseVisualStyleBackColor = true;
+            this.radALight.CheckedChanged += new System.EventHandler(this.radALight_CheckedChanged);
+            // 
+            // radAModerate
+            // 
+            this.radAModerate.AutoSize = true;
+            this.radAModerate.Location = new System.Drawing.Point(7, 65);
+            this.radAModerate.Name = "radAModerate";
+            this.radAModerate.Size = new System.Drawing.Size(166, 17);
+            this.radAModerate.TabIndex = 4;
+            this.radAModerate.Text = "Moderately active (3 - 5 times)";
+            this.radAModerate.UseVisualStyleBackColor = true;
+            this.radAModerate.CheckedChanged += new System.EventHandler(this.radAModerate_CheckedChanged);
+            // 
+            // radAVery
+            // 
+            this.radAVery.AutoSize = true;
+            this.radAVery.Location = new System.Drawing.Point(7, 88);
+            this.radAVery.Name = "radAVery";
+            this.radAVery.Size = new System.Drawing.Size(124, 17);
+            this.radAVery.TabIndex = 3;
+            this.radAVery.Text = "Very active (6-7 time)";
+            this.radAVery.UseVisualStyleBackColor = true;
+            this.radAVery.CheckedChanged += new System.EventHandler(this.radAVery_CheckedChanged);
+            // 
+            // radAExtra
+            // 
+            this.radAExtra.AutoSize = true;
+            this.radAExtra.Location = new System.Drawing.Point(7, 111);
+            this.radAExtra.Name = "radAExtra";
+            this.radAExtra.Size = new System.Drawing.Size(184, 17);
+            this.radAExtra.TabIndex = 2;
+            this.radAExtra.Text = "Extra active, hard excersise or job";
+            this.radAExtra.UseVisualStyleBackColor = true;
+            this.radAExtra.CheckedChanged += new System.EventHandler(this.radAExtra_CheckedChanged);
+            // 
+            // radASedentary
+            // 
+            this.radASedentary.AutoSize = true;
+            this.radASedentary.Checked = true;
+            this.radASedentary.Location = new System.Drawing.Point(7, 19);
+            this.radASedentary.Name = "radASedentary";
+            this.radASedentary.Size = new System.Drawing.Size(175, 17);
+            this.radASedentary.TabIndex = 1;
+            this.radASedentary.TabStop = true;
+            this.radASedentary.Text = "Sedentary (little or no excersice)";
+            this.radASedentary.UseVisualStyleBackColor = true;
+            this.radASedentary.CheckedChanged += new System.EventHandler(this.radASedentary_CheckedChanged);
+            // 
+            // txtAge
+            // 
+            this.txtAge.Location = new System.Drawing.Point(62, 43);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(68, 20);
+            this.txtAge.TabIndex = 9;
+            this.txtAge.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblAge
+            // 
+            this.lblAge.AutoSize = true;
+            this.lblAge.Location = new System.Drawing.Point(14, 46);
+            this.lblAge.Name = "lblAge";
+            this.lblAge.Size = new System.Drawing.Size(26, 13);
+            this.lblAge.TabIndex = 2;
+            this.lblAge.Text = "Age";
+            // 
+            // radMale
+            // 
+            this.radMale.AutoSize = true;
+            this.radMale.Location = new System.Drawing.Point(82, 20);
+            this.radMale.Name = "radMale";
+            this.radMale.Size = new System.Drawing.Size(48, 17);
+            this.radMale.TabIndex = 1;
+            this.radMale.Text = "Male";
+            this.radMale.UseVisualStyleBackColor = true;
+            this.radMale.CheckedChanged += new System.EventHandler(this.radMale_CheckedChanged);
+            // 
+            // radFemale
+            // 
+            this.radFemale.AutoSize = true;
+            this.radFemale.Checked = true;
+            this.radFemale.Location = new System.Drawing.Point(17, 20);
+            this.radFemale.Name = "radFemale";
+            this.radFemale.Size = new System.Drawing.Size(59, 17);
+            this.radFemale.TabIndex = 0;
+            this.radFemale.TabStop = true;
+            this.radFemale.Text = "Female";
+            this.radFemale.UseVisualStyleBackColor = true;
+            this.radFemale.CheckedChanged += new System.EventHandler(this.radFemale_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 367);
+            this.ClientSize = new System.Drawing.Size(608, 576);
             this.Controls.Add(this.grpBmi);
             this.Controls.Add(this.grpFuel);
+            this.Controls.Add(this.grpBmr);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -459,6 +647,10 @@
             this.grpBmi.PerformLayout();
             this.grpBmiResults.ResumeLayout(false);
             this.grpBmiResults.PerformLayout();
+            this.grpBmr.ResumeLayout(false);
+            this.grpBmr.PerformLayout();
+            this.grpActivity.ResumeLayout(false);
+            this.grpActivity.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -502,6 +694,21 @@
         private System.Windows.Forms.Label lblBmiRange;
         private System.Windows.Forms.Label lblBmiResults_2;
         private System.Windows.Forms.Label lblBmiResults_1;
+        private System.Windows.Forms.GroupBox grpBmr;
+        private System.Windows.Forms.GroupBox grpActivity;
+        private System.Windows.Forms.RadioButton radALight;
+        private System.Windows.Forms.RadioButton radAModerate;
+        private System.Windows.Forms.RadioButton radAVery;
+        private System.Windows.Forms.RadioButton radAExtra;
+        private System.Windows.Forms.RadioButton radASedentary;
+        private System.Windows.Forms.TextBox txtAge;
+        private System.Windows.Forms.Label lblAge;
+        private System.Windows.Forms.RadioButton radMale;
+        private System.Windows.Forms.RadioButton radFemale;
+        private System.Windows.Forms.Button btnBmrCalc;
+        private System.Windows.Forms.ListBox lboxBmr;
+        private System.Windows.Forms.Button btnBrmUnselect;
+        private System.Windows.Forms.Label lblBmrSelect;
     }
 }
 

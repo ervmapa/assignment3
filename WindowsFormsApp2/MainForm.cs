@@ -14,6 +14,7 @@ namespace WindowsFormsApp2
     {
         private FuelCalc fuelCalc = new FuelCalc();
         private BmiCalc bmiCalc = new BmiCalc();
+        private BmrCalc bmrCalc = new BmrCalc();
 
         public MainForm()
         {
@@ -25,6 +26,7 @@ namespace WindowsFormsApp2
         {
             clearFuelFields();
             clearMbiFields();
+
         }
 
         private void clearMbiFields()
@@ -204,6 +206,7 @@ namespace WindowsFormsApp2
                 lblBmiHeight.Text = "Height (inch)";
                 lblBmiWeight.Text = "Weight (lb)";
                 bmiCalc.setUnit(Unit.US);
+                bmrCalc.setUnit(Unit.US);
             }
         }
 
@@ -215,6 +218,7 @@ namespace WindowsFormsApp2
                 lblBmiHeight.Text = "Height (cm)";
                 lblBmiWeight.Text = "Weight (kg)";
                 bmiCalc.setUnit(Unit.METRIC);
+                bmrCalc.setUnit(Unit.METRIC);
             }
         }
 
@@ -242,6 +246,8 @@ namespace WindowsFormsApp2
             else
             {
                 clearMbiResultFields();
+                lboxBmr.ClearSelected();
+                lboxBmr.Items.Clear();
             }
         }
 
@@ -264,14 +270,15 @@ namespace WindowsFormsApp2
 
         private bool validateBmiHeight()
         {
-            double bmiheight = validateDouble(txtBmiHeight, lblBmiHeight);
+            double bmiHeight = validateDouble(txtBmiHeight, lblBmiHeight);
 
-            if (bmiheight < 0)
+            if (bmiHeight < 0)
                 return false;
 
-            bmiCalc.setHeight(bmiheight);
+            bmiCalc.setHeight(bmiHeight);
+            bmrCalc.setHeight(bmiHeight);
 
-            if (bmiheight == 0)
+            if (bmiHeight == 0)
             {
                 MessageBox.Show(string.Format("Height must be a > 0"),
                 "Input validation error", MessageBoxButtons.OK);
@@ -291,6 +298,7 @@ namespace WindowsFormsApp2
                 return false;
 
             bmiCalc.setWeight(bmiWeight);
+            bmrCalc.setWeight(bmiWeight);
 
             if (bmiWeight == 0)
             {
@@ -305,7 +313,103 @@ namespace WindowsFormsApp2
         }
 
 
+        private bool validateBmrAge()
+        {
+            int val = -1;
+            if (!int.TryParse(txtAge.Text.Trim(), out val) || val <= 0)
+            {
+                MessageBox.Show("Please check field age",
+                    "Input validation error",
+                    MessageBoxButtons.OK);
+                txtAge.Select();
+                lboxBmr.ClearSelected();
+                lboxBmr.Items.Clear();
+                return false;
+            }
+            bmrCalc.setAge(val);
+
+            return true;
+        }
 
 
+
+        private bool validateBmrInput()
+        {
+            return (validateBmiHeight() && validateBmiWeight() && validateBmrAge());
+        }
+
+        private void btnBmrCalc_Click(object sender, EventArgs e)
+        {
+            if (validateBmrInput())
+            {
+                lboxBmr.ClearSelected();
+                lboxBmr.Items.Clear();
+                double bmr = bmrCalc.Calculate();
+                lboxBmr.Items.Add("BMR RESULTS FOR " + updateBmiUsername().ToUpper());
+                lboxBmr.Items.Add("");
+                lboxBmr.Items.Add(string.Format("Your BMR (calories per day)\t\t{0}", bmr.ToString("0.#")));
+                lboxBmr.Items.Add(string.Format("Calories to maintain weight\t\t{0}", bmrCalc.KeepWeight(bmr).ToString("0.#")));
+                lboxBmr.Items.Add(string.Format("Calories to loose 0.5 kg/week\t\t{0}", (bmrCalc.KeepWeight(bmr) - 500).ToString("0.#")));
+                lboxBmr.Items.Add(string.Format("Calories to loose 1 kg/week\t\t{0}", (bmrCalc.KeepWeight(bmr) - 1000).ToString("0.#")));
+                lboxBmr.Items.Add(string.Format("Calories to gain 0.5 kg/week\t\t{0}", (bmrCalc.KeepWeight(bmr) + 500).ToString("0.#")));
+                lboxBmr.Items.Add(string.Format("Calories to gain 1 kg/week\t\t{0}", (bmrCalc.KeepWeight(bmr) + 1000).ToString("0.#")));
+                lboxBmr.Items.Add("");
+                lboxBmr.Items.Add("Loosing more than 1000 calories per day is to be avoided");
+            }
+        }
+
+
+
+        private void btnBrmUnselect_Click(object sender, EventArgs e)
+        {
+            lboxBmr.ClearSelected();
+        }
+
+        private void lboxBmr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblBmrSelect.Text = "Selected index: " + lboxBmr.SelectedIndex.ToString();
+        }
+
+        private void radASedentary_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radASedentary.Checked)
+                bmrCalc.setActivityLevel(BmrActivityLevel.SEDENTARY);
+        }
+
+        private void radALight_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radALight.Checked)
+                bmrCalc.setActivityLevel(BmrActivityLevel.LIGHTLY);
+        }
+
+        private void radAModerate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radAModerate.Checked)
+                bmrCalc.setActivityLevel(BmrActivityLevel.MODERATELY);
+        }
+
+        private void radAVery_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radAVery.Checked)
+                bmrCalc.setActivityLevel(BmrActivityLevel.VERY);
+        }
+
+        private void radAExtra_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radAExtra.Checked)
+                bmrCalc.setActivityLevel(BmrActivityLevel.EXTRA);
+        }
+
+        private void radFemale_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radFemale.Checked)
+                bmrCalc.setGender(Gender.FEMALE);
+        }
+
+        private void radMale_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radMale.Checked)
+                bmrCalc.setGender(Gender.MALE);
+        }
     }
 }
