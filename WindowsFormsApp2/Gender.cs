@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WindowsFormsApp2
+﻿namespace WindowsFormsApp2
 {
+    /// <summary>
+    /// Gender enum
+    /// </summary>
     public enum Gender
     {
         FEMALE = -161,

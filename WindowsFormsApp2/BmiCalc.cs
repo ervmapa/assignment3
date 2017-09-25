@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApp2
 {
+    /// <summary>
+    /// This class will calcuate the bmi
+    /// </summary>
     class BmiCalc
     {
         // Instance variables
@@ -13,25 +12,36 @@ namespace WindowsFormsApp2
         private double height;
         private Unit unit = Unit.METRIC;
 
-
-        public void setWeight(double weight)
+        /// <summary>
+        /// Setter method
+        /// </summary>
+        /// <param name="weight"></param>
+        public void SetWeight(double weight)
         {
             this.weight = weight;
         }
 
-        public void setHeight(double height)
+        /// <summary>
+        /// setter method
+        /// </summary>
+        /// <param name="height"></param>
+        public void SetHeight(double height)
         {
             this.height = height;
         }
 
-        public void setUnit(Unit unit)
+        /// <summary>
+        /// Setter method
+        /// </summary>
+        /// <param name="unit"></param>
+        public void SetUnit(Unit unit)
         {
             this.unit = unit;
             Console.WriteLine(unit.ToString());
         }
 
         /// <summary>
-        /// Calculate the bmi
+        /// Calculate the bmi. 
         /// </summary>
         /// <param name="range">A string with the range for the bmi</param>
         /// <param name="category">category for the bmi</param>
@@ -70,7 +80,6 @@ namespace WindowsFormsApp2
             double bmi = weight / Math.Pow(height * 0.01, 2);
             return Math.Round(bmi, 1);
         }
-
 
     }
 }

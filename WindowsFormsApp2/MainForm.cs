@@ -1,35 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp2
 {
+    /// <summary>
+    /// Mainform
+    /// </summary>
     public partial class MainForm : Form
     {
+
+        // Instance variables
         private FuelCalc fuelCalc = new FuelCalc();
         private BmiCalc bmiCalc = new BmiCalc();
         private BmrCalc bmrCalc = new BmrCalc();
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
             InitializeGui();
         }
 
+        /// <summary>
+        /// Initialize
+        /// </summary>
         private void InitializeGui()
         {
-            clearFuelFields();
-            clearMbiFields();
+            // Default variables
+            bmrCalc.setActivityLevel(BmrActivityLevel.SEDENTARY);
+            bmrCalc.SetGender(Gender.FEMALE);
+            bmiCalc.SetUnit(Unit.METRIC);
 
+            // Clear fields
+            ClearFuelFields();
+            ClearMbiFields();
+            ClearBmrFields();
         }
 
-        private void clearMbiFields()
+        /// <summary>
+        /// Clear fields
+        /// </summary>
+        private void ClearMbiFields()
         {
             txtBmiHeight.Text = "";
             txtBmiWeight.Text = "";
@@ -39,10 +52,13 @@ namespace WindowsFormsApp2
             lblBmiWeight.Text = "Weight (kg)";
             radMetric.Checked = true;
             radUs.Checked = false;
-            clearMbiResultFields();
+            ClearMbiResultFields();
         }
 
-        private void clearMbiResultFields()
+        /// <summary>
+        /// Clear fields
+        /// </summary>
+        private void ClearMbiResultFields()
         {
             lblBmiResBmi.Text = "";
             lblBmiResCat.Text = "";
@@ -50,30 +66,48 @@ namespace WindowsFormsApp2
             grpBmiResults.Text = "Results for noname";
         }
 
-        private void clearFuelFields()
+        /// <summary>
+        /// Clear fields
+        /// </summary>
+        private void ClearBmrFields()
+        {
+            lboxBmr.ClearSelected();
+            lboxBmr.Items.Clear();
+        }
+
+        /// <summary>
+        /// Clear fields
+        /// </summary>
+        private void ClearFuelFields()
         {
             txtCurrentKm.Text = "";
             txtPrevKm.Text = "0";
             txtAmount.Text = "";
             txtFuelPrice.Text = "";
             txtCurrentKm.Select();
-            clearFuelResultFields();
+            ClearFuelResultFields();
         }
 
-        private void clearFuelResultFields()
+        /// <summary>
+        /// Clear fields
+        /// </summary>
+        private void ClearFuelResultFields()
         {
             lblFuelResKmLit.Text = "";
             lblFuelResLitKm.Text = "";
             lblFuelResLitMile.Text = "";
             lblFuelResMil.Text = "";
             lblFuelResCostKm.Text = "";
-
         }
 
 
-
-
-        private double validateDouble(TextBox textbox, Label label)
+        /// <summary>
+        /// Validate that a textbox contains a double value
+        /// </summary>
+        /// <param name="textbox"></param>
+        /// <param name="label"></param>
+        /// <returns></returns>
+        private double ValidateDouble(TextBox textbox, Label label)
         {
             double val = -1;
             if (!double.TryParse(textbox.Text.Trim(), out val) || val < 0)
@@ -87,19 +121,21 @@ namespace WindowsFormsApp2
             return val;
         }
 
-
-
-        private bool validateOdometer()
+        /// <summary>
+        /// Validate odometer inputs are correct
+        /// </summary>
+        /// <returns></returns>
+        private bool ValidateOdometer()
         {
-            double currentKm = validateDouble(txtCurrentKm, lblCurrentKm);
+            double currentKm = ValidateDouble(txtCurrentKm, lblCurrentKm);
             if (currentKm < 0)
                 return false;
-            fuelCalc.setCurrentKm(currentKm);
+            fuelCalc.SetCurrentKm(currentKm);
 
-            double previousKm = validateDouble(txtPrevKm, lblPrevKm);
+            double previousKm = ValidateDouble(txtPrevKm, lblPrevKm);
             if (previousKm < 0)
                 return false;
-            fuelCalc.setPreviousKm(previousKm);
+            fuelCalc.SetPreviousKm(previousKm);
 
             if (previousKm >= currentKm)
             {
@@ -114,14 +150,18 @@ namespace WindowsFormsApp2
 
         }
 
-        private bool validateFuelAmount()
+        /// <summary>
+        /// Validate fuel amount input are correct
+        /// </summary>
+        /// <returns></returns>
+        private bool ValidateFuelAmount()
         {
-            double fuelAmount = validateDouble(txtAmount, lblAmount);
+            double fuelAmount = ValidateDouble(txtAmount, lblAmount);
 
             if (fuelAmount < 0)
                 return false;
 
-            fuelCalc.setFuelAmount(fuelAmount);
+            fuelCalc.SetFuelAmount(fuelAmount);
 
             if (fuelAmount == 0)
             {
@@ -137,14 +177,18 @@ namespace WindowsFormsApp2
             }
         }
 
-        private bool validateFuelPrice()
+        /// <summary>
+        /// Validate fuel price inputs are correct
+        /// </summary>
+        /// <returns></returns>
+        private bool ValidateFuelPrice()
         {
-            double fuelPrice = validateDouble(txtFuelPrice, lblFuelPrice);
+            double fuelPrice = ValidateDouble(txtFuelPrice, lblFuelPrice);
 
             if (fuelPrice < 0)
                 return false;
 
-            fuelCalc.setPricePerLiter(fuelPrice);
+            fuelCalc.SetPricePerLiter(fuelPrice);
 
             if (fuelPrice == 0)
             {
@@ -158,15 +202,21 @@ namespace WindowsFormsApp2
             }
         }
 
-
-
-        private bool validateFuelInput()
+        /// <summary>
+        /// Validate all fuel fields
+        /// </summary>
+        /// <returns></returns>
+        private bool ValidateFuelInput()
         {
-            return (validateOdometer() && validateFuelAmount() && validateFuelPrice());
+            return (ValidateOdometer() && ValidateFuelAmount() && ValidateFuelPrice());
         }
 
-
-        private void btnFuelCalc_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Validate and calculate fuel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnFuelCalc_Click(object sender, EventArgs e)
         {
             // Initialize result variables
             double kmPerLiter = 0;
@@ -176,7 +226,7 @@ namespace WindowsFormsApp2
             double costPerKm = 0;
 
             // Validate the input
-            if (validateFuelInput())
+            if (ValidateFuelInput())
             {
                 // input is validated and ready for the fuelCalc
                 fuelCalc.Calculate(out kmPerLiter, out litPerKm, out litPerMile, out litPerMil, out costPerKm);
@@ -189,40 +239,50 @@ namespace WindowsFormsApp2
                 lblFuelResCostKm.Text = costPerKm.ToString("0.##");
             }
 
-            // if the input is incorrect, clear the
+            // if the input is incorrect, clear the fuel result
             else
-                clearFuelResultFields();
-
-
+                ClearFuelResultFields();
         }
 
 
-
-        private void radUs_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handle US metric change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadUs_CheckedChanged(object sender, EventArgs e)
         {
-
             if (radUs.Checked == true)
             {
                 lblBmiHeight.Text = "Height (inch)";
                 lblBmiWeight.Text = "Weight (lb)";
-                bmiCalc.setUnit(Unit.US);
-                bmrCalc.setUnit(Unit.US);
+                bmiCalc.SetUnit(Unit.US);
+                bmrCalc.SetUnit(Unit.US);
             }
         }
 
-
-        private void radMetric_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handle metric change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadMetric_CheckedChanged(object sender, EventArgs e)
         {
             if (radMetric.Checked == true)
             {
                 lblBmiHeight.Text = "Height (cm)";
                 lblBmiWeight.Text = "Weight (kg)";
-                bmiCalc.setUnit(Unit.METRIC);
-                bmrCalc.setUnit(Unit.METRIC);
+                bmiCalc.SetUnit(Unit.METRIC);
+                bmrCalc.SetUnit(Unit.METRIC);
             }
         }
 
-        private void btnBmiCalc_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Calculate BMI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnBmiCalc_Click(object sender, EventArgs e)
         {
             // Initialize result variables
             double bmi;
@@ -231,7 +291,7 @@ namespace WindowsFormsApp2
 
 
             // Validate the input
-            if (validateBmiInput())
+            if (ValidateBmiInput())
             {
                 // input is validated and ready for the fuelCalc
                 bmi = bmiCalc.Calculate(out bmiRange, out bmiCategory);
@@ -239,19 +299,21 @@ namespace WindowsFormsApp2
                 lblBmiResCat.Text = bmiCategory;
                 lblBmiRange.Text = "Range for category " + bmiCategory + " is " + bmiRange + "\nNormal BMI is between 18.5 and 30.";
 
-
                 // update the groupbox with the username
-                grpBmiResults.Text = ("Results for " + updateBmiUsername());
+                grpBmiResults.Text = ("Results for " + UpdateBmiUsername());
             }
             else
             {
-                clearMbiResultFields();
-                lboxBmr.ClearSelected();
-                lboxBmr.Items.Clear();
+                ClearMbiResultFields();
+                ClearBmrFields();
             }
         }
 
-        private string updateBmiUsername()
+        /// <summary>
+        ///  Validate the username is correct
+        /// </summary>
+        /// <returns></returns>
+        private string UpdateBmiUsername()
         {
             string name = txtBmiName.Text.Trim();
 
@@ -263,20 +325,28 @@ namespace WindowsFormsApp2
             return name;
         }
 
-        private bool validateBmiInput()
+        /// <summary>
+        /// validate BMI input fields
+        /// </summary>
+        /// <returns></returns>
+        private bool ValidateBmiInput()
         {
-            return (validateBmiHeight() && validateBmiWeight());
+            return (ValidateBmiHeight() && ValidateBmiWeight());
         }
 
-        private bool validateBmiHeight()
+        /// <summary>
+        ///  Valdiate height
+        /// </summary>
+        /// <returns></returns>
+        private bool ValidateBmiHeight()
         {
-            double bmiHeight = validateDouble(txtBmiHeight, lblBmiHeight);
+            double bmiHeight = ValidateDouble(txtBmiHeight, lblBmiHeight);
 
             if (bmiHeight < 0)
                 return false;
 
-            bmiCalc.setHeight(bmiHeight);
-            bmrCalc.setHeight(bmiHeight);
+            bmiCalc.SetHeight(bmiHeight);
+            bmrCalc.SetHeight(bmiHeight);
 
             if (bmiHeight == 0)
             {
@@ -290,15 +360,19 @@ namespace WindowsFormsApp2
             }
         }
 
-        private bool validateBmiWeight()
+        /// <summary>
+        ///  Validate weight
+        /// </summary>
+        /// <returns></returns>
+        private bool ValidateBmiWeight()
         {
-            double bmiWeight = validateDouble(txtBmiWeight, lblBmiWeight);
+            double bmiWeight = ValidateDouble(txtBmiWeight, lblBmiWeight);
 
             if (bmiWeight < 0)
                 return false;
 
-            bmiCalc.setWeight(bmiWeight);
-            bmrCalc.setWeight(bmiWeight);
+            bmiCalc.SetWeight(bmiWeight);
+            bmrCalc.SetWeight(bmiWeight);
 
             if (bmiWeight == 0)
             {
@@ -312,8 +386,11 @@ namespace WindowsFormsApp2
             }
         }
 
-
-        private bool validateBmrAge()
+        /// <summary>
+        /// Validate age is integer
+        /// </summary>
+        /// <returns></returns>
+        private bool ValidateBmrAge()
         {
             int val = -1;
             if (!int.TryParse(txtAge.Text.Trim(), out val) || val <= 0)
@@ -322,30 +399,36 @@ namespace WindowsFormsApp2
                     "Input validation error",
                     MessageBoxButtons.OK);
                 txtAge.Select();
-                lboxBmr.ClearSelected();
-                lboxBmr.Items.Clear();
+                ClearBmrFields();
                 return false;
             }
-            bmrCalc.setAge(val);
+            bmrCalc.SetAge(val);
 
             return true;
         }
 
 
-
-        private bool validateBmrInput()
+        /// <summary>
+        /// Validate all BMR fields
+        /// </summary>
+        /// <returns></returns>
+        private bool ValidateBmrInput()
         {
-            return (validateBmiHeight() && validateBmiWeight() && validateBmrAge());
+            return (ValidateBmiHeight() && ValidateBmiWeight() && ValidateBmrAge());
         }
 
+        /// <summary>
+        ///  Calculate BMR
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBmrCalc_Click(object sender, EventArgs e)
         {
-            if (validateBmrInput())
+            if (ValidateBmrInput())
             {
-                lboxBmr.ClearSelected();
-                lboxBmr.Items.Clear();
+                ClearBmrFields();
                 double bmr = bmrCalc.Calculate();
-                lboxBmr.Items.Add("BMR RESULTS FOR " + updateBmiUsername().ToUpper());
+                lboxBmr.Items.Add("BMR RESULTS FOR " + UpdateBmiUsername().ToUpper());
                 lboxBmr.Items.Add("");
                 lboxBmr.Items.Add(string.Format("Your BMR (calories per day)\t\t{0}", bmr.ToString("0.#")));
                 lboxBmr.Items.Add(string.Format("Calories to maintain weight\t\t{0}", bmrCalc.KeepWeight(bmr).ToString("0.#")));
@@ -358,58 +441,101 @@ namespace WindowsFormsApp2
             }
         }
 
-
-
-        private void btnBrmUnselect_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Unselect listbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnBrmUnselect_Click(object sender, EventArgs e)
         {
             lboxBmr.ClearSelected();
         }
 
-        private void lboxBmr_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handle listbox changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LboxBmr_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblBmrSelect.Text = "Selected index: " + lboxBmr.SelectedIndex.ToString();
         }
 
-        private void radASedentary_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handle change of radiobuttonactivity level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadASedentary_CheckedChanged(object sender, EventArgs e)
         {
             if (radASedentary.Checked)
                 bmrCalc.setActivityLevel(BmrActivityLevel.SEDENTARY);
         }
 
-        private void radALight_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handle change of radiobuttonactivity level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadALight_CheckedChanged(object sender, EventArgs e)
         {
             if (radALight.Checked)
                 bmrCalc.setActivityLevel(BmrActivityLevel.LIGHTLY);
         }
 
-        private void radAModerate_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handle change of radiobuttonactivity level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadAModerate_CheckedChanged(object sender, EventArgs e)
         {
             if (radAModerate.Checked)
                 bmrCalc.setActivityLevel(BmrActivityLevel.MODERATELY);
         }
 
-        private void radAVery_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handle change of radiobuttonactivity level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadAVery_CheckedChanged(object sender, EventArgs e)
         {
             if (radAVery.Checked)
                 bmrCalc.setActivityLevel(BmrActivityLevel.VERY);
         }
 
-        private void radAExtra_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handle change of radiobuttonactivity level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadAExtra_CheckedChanged(object sender, EventArgs e)
         {
             if (radAExtra.Checked)
                 bmrCalc.setActivityLevel(BmrActivityLevel.EXTRA);
         }
 
-        private void radFemale_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handle change of gender
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadFemale_CheckedChanged(object sender, EventArgs e)
         {
             if (radFemale.Checked)
-                bmrCalc.setGender(Gender.FEMALE);
+                bmrCalc.SetGender(Gender.FEMALE);
         }
 
-        private void radMale_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handle change of gender
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadMale_CheckedChanged(object sender, EventArgs e)
         {
             if (radMale.Checked)
-                bmrCalc.setGender(Gender.MALE);
+                bmrCalc.SetGender(Gender.MALE);
         }
     }
 }

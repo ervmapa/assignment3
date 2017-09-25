@@ -1,43 +1,86 @@
-﻿// testpage http://www.calculator.net/bmr-calculator.html
-
-namespace WindowsFormsApp2
+﻿namespace WindowsFormsApp2
 {
+    /// <summary>
+    /// Calculator for Bmr
+    /// </summary>
     class BmrCalc
     {
         // Instance variable default input value
-        double bmrActivityLevel = BmrActivityLevel.SEDENTARY;
+        double bmrActivityLevel; 
         double weight;
         double height;
         int age;
         Gender gender;
         Unit unit = Unit.METRIC;
 
-        public void setWeight(double weight)
+        /// <summary>
+        /// setter
+        /// </summary>
+        /// <param name="weight"></param>
+        public void SetWeight(double weight)
         {
             this.weight = weight;
         }
 
-        public void setHeight(double height)
+        /// <summary>
+        /// setter
+        /// </summary>
+        /// <param name="height"></param>
+        public void SetHeight(double height)
         {
             this.height = height;
         }
 
-        public void setAge(int age)
+        /// <summary>
+        /// setter
+        /// </summary>
+        /// <param name="age"></param>
+        public void SetAge(int age)
         {
             this.age = age;
         }
 
-        public void setGender(Gender gender)
+        /// <summary>
+        /// setter
+        /// </summary>
+        /// <param name="gender"></param>
+        public void SetGender(Gender gender)
         {
             this.gender = gender;
         }
 
-        public void setUnit(Unit unit)
+        /// <summary>
+        /// setter
+        /// </summary>
+        /// <param name="unit"></param>
+        public void SetUnit(Unit unit)
         {
             this.unit = unit;
-         
         }
 
+        /// <summary>
+        /// setter
+        /// </summary>
+        /// <param name="bmrActivityLevel"></param>
+        public void setActivityLevel(double bmrActivityLevel)
+        {
+            this.bmrActivityLevel = bmrActivityLevel;
+        }
+
+        /// <summary>
+        /// setter
+        /// </summary>
+        /// <param name="bmr"></param>
+        /// <returns></returns>
+        public double KeepWeight(double bmr)
+        {
+            return bmr * bmrActivityLevel;
+        }
+
+        /// <summary>
+        /// Do the calcuation
+        /// </summary>
+        /// <returns></returns>
         public double Calculate()
         {
 
@@ -51,16 +94,6 @@ namespace WindowsFormsApp2
             // Calcuate BMR
             double bmr = 10 * weight + 6.25 * height - 5 * age + (int)gender;
             return bmr;
-        }
-
-        public void setActivityLevel(double bmrActivityLevel)
-        {
-            this.bmrActivityLevel = bmrActivityLevel;
-        }
-
-        public double KeepWeight(double bmr)
-        {
-            return bmr * bmrActivityLevel;
         }
 
     }

@@ -115,7 +115,7 @@
             this.btnFuelCalc.TabIndex = 9;
             this.btnFuelCalc.Text = "Calculate";
             this.btnFuelCalc.UseVisualStyleBackColor = true;
-            this.btnFuelCalc.Click += new System.EventHandler(this.btnFuelCalc_Click);
+            this.btnFuelCalc.Click += new System.EventHandler(this.BtnFuelCalc_Click);
             // 
             // txtFuelPrice
             // 
@@ -323,7 +323,7 @@
             this.radUs.TabIndex = 9;
             this.radUs.Text = "US (lb, inch)";
             this.radUs.UseVisualStyleBackColor = true;
-            this.radUs.CheckedChanged += new System.EventHandler(this.radUs_CheckedChanged);
+            this.radUs.CheckedChanged += new System.EventHandler(this.RadUs_CheckedChanged);
             // 
             // radMetric
             // 
@@ -336,7 +336,7 @@
             this.radMetric.TabStop = true;
             this.radMetric.Text = "Metric (kg, cm)";
             this.radMetric.UseVisualStyleBackColor = true;
-            this.radMetric.CheckedChanged += new System.EventHandler(this.radMetric_CheckedChanged);
+            this.radMetric.CheckedChanged += new System.EventHandler(this.RadMetric_CheckedChanged);
             // 
             // btnBmiCalc
             // 
@@ -346,7 +346,7 @@
             this.btnBmiCalc.TabIndex = 10;
             this.btnBmiCalc.Text = "Calculate";
             this.btnBmiCalc.UseVisualStyleBackColor = true;
-            this.btnBmiCalc.Click += new System.EventHandler(this.btnBmiCalc_Click);
+            this.btnBmiCalc.Click += new System.EventHandler(this.BtnBmiCalc_Click);
             // 
             // txtBmiWeight
             // 
@@ -492,7 +492,7 @@
             this.btnBrmUnselect.TabIndex = 13;
             this.btnBrmUnselect.Text = "Unselect";
             this.btnBrmUnselect.UseVisualStyleBackColor = true;
-            this.btnBrmUnselect.Click += new System.EventHandler(this.btnBrmUnselect_Click);
+            this.btnBrmUnselect.Click += new System.EventHandler(this.BtnBrmUnselect_Click);
             // 
             // btnBmrCalc
             // 
@@ -513,7 +513,7 @@
             this.lboxBmr.Name = "lboxBmr";
             this.lboxBmr.Size = new System.Drawing.Size(305, 136);
             this.lboxBmr.TabIndex = 11;
-            this.lboxBmr.SelectedIndexChanged += new System.EventHandler(this.lboxBmr_SelectedIndexChanged);
+            this.lboxBmr.SelectedIndexChanged += new System.EventHandler(this.LboxBmr_SelectedIndexChanged);
             // 
             // grpActivity
             // 
@@ -538,7 +538,7 @@
             this.radALight.TabIndex = 5;
             this.radALight.Text = "Lightly active (1-3 times)";
             this.radALight.UseVisualStyleBackColor = true;
-            this.radALight.CheckedChanged += new System.EventHandler(this.radALight_CheckedChanged);
+            this.radALight.CheckedChanged += new System.EventHandler(this.RadALight_CheckedChanged);
             // 
             // radAModerate
             // 
@@ -549,7 +549,7 @@
             this.radAModerate.TabIndex = 4;
             this.radAModerate.Text = "Moderately active (3 - 5 times)";
             this.radAModerate.UseVisualStyleBackColor = true;
-            this.radAModerate.CheckedChanged += new System.EventHandler(this.radAModerate_CheckedChanged);
+            this.radAModerate.CheckedChanged += new System.EventHandler(this.RadAModerate_CheckedChanged);
             // 
             // radAVery
             // 
@@ -560,7 +560,7 @@
             this.radAVery.TabIndex = 3;
             this.radAVery.Text = "Very active (6-7 time)";
             this.radAVery.UseVisualStyleBackColor = true;
-            this.radAVery.CheckedChanged += new System.EventHandler(this.radAVery_CheckedChanged);
+            this.radAVery.CheckedChanged += new System.EventHandler(this.RadAVery_CheckedChanged);
             // 
             // radAExtra
             // 
@@ -571,7 +571,7 @@
             this.radAExtra.TabIndex = 2;
             this.radAExtra.Text = "Extra active, hard excersise or job";
             this.radAExtra.UseVisualStyleBackColor = true;
-            this.radAExtra.CheckedChanged += new System.EventHandler(this.radAExtra_CheckedChanged);
+            this.radAExtra.CheckedChanged += new System.EventHandler(this.RadAExtra_CheckedChanged);
             // 
             // radASedentary
             // 
@@ -584,7 +584,7 @@
             this.radASedentary.TabStop = true;
             this.radASedentary.Text = "Sedentary (little or no excersice)";
             this.radASedentary.UseVisualStyleBackColor = true;
-            this.radASedentary.CheckedChanged += new System.EventHandler(this.radASedentary_CheckedChanged);
+            this.radASedentary.CheckedChanged += new System.EventHandler(this.RadASedentary_CheckedChanged);
             // 
             // txtAge
             // 
@@ -612,7 +612,7 @@
             this.radMale.TabIndex = 1;
             this.radMale.Text = "Male";
             this.radMale.UseVisualStyleBackColor = true;
-            this.radMale.CheckedChanged += new System.EventHandler(this.radMale_CheckedChanged);
+            this.radMale.CheckedChanged += new System.EventHandler(this.RadMale_CheckedChanged);
             // 
             // radFemale
             // 
@@ -625,7 +625,7 @@
             this.radFemale.TabStop = true;
             this.radFemale.Text = "Female";
             this.radFemale.UseVisualStyleBackColor = true;
-            this.radFemale.CheckedChanged += new System.EventHandler(this.radFemale_CheckedChanged);
+            this.radFemale.CheckedChanged += new System.EventHandler(this.RadFemale_CheckedChanged);
             // 
             // MainForm
             // 

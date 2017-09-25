@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WindowsFormsApp2
+﻿namespace WindowsFormsApp2
 {
-
+    /// <summary>
+    /// A struct used by the BmrCalculator
+    /// Mapping a activity name to an activity factor
+    /// </summary>
     public struct BmrActivityLevel
     {
         public const double SEDENTARY = 1.2;
